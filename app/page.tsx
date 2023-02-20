@@ -1,10 +1,12 @@
-// import Desktop from './Desktop'
+'use client'
+import Desktop from './Desktop'
 import Login from './Login'
+import { userStore } from '@/store'
 export default function Home() {
+  const username = userStore(state => state.username)
   return (
     <>
-    <Login></Login>
-      {/* <Desktop ></Desktop> */}
+      {username ? <Desktop ></Desktop> : <Login></Login>}
     </>
 
   )

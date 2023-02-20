@@ -1,21 +1,16 @@
 'use client'
 import React, { useState } from 'react'
 import { user, wallpapers } from '@/configs'
-// import type { MacActions } from '@/types'
+import { themeStore, userStore } from '@/store'
 
 export default function Login(props: any) {
   const [password, setPassword] = useState('')
   const [sign, setSign] = useState('Click to enter')
-  const dark = true
+  const dark = themeStore(state => state.dark)
+  const setTheme = themeStore(state => state.setDark)
+  const pwd = userStore(state => state.password)
 
   const loginHandle = () => {
-    if (user.password === '' || user.password === password) {
-      // not set password or password correct
-    }
-    else if (password !== '') {
-      // password not null and incorrect
-      setSign('Incorrect password')
-    }
   }
   const keyPress = (e: React.KeyboardEvent) => {
     const keyCode = e.key
