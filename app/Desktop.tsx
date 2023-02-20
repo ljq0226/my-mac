@@ -1,4 +1,5 @@
 import React from 'react'
+import Topbar from '../components/Topbar'
 import { apps, wallpapers } from '@/configs'
 // import type { MacActions } from '@/types'
 
@@ -37,7 +38,10 @@ const Desktop = (props: any) => {
         backgroundImage: `url(${dark ? wallpapers.night : wallpapers.day})`,
         filter: `brightness( ${(brightness as number) * 0.7 + 50}% )`,
       }}
-    >Desktop</div>
+    >
+      <Topbar></Topbar>
+
+    </div>
   )
 }
 
