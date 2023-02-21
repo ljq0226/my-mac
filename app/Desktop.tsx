@@ -1,36 +1,11 @@
 import React from 'react'
-import Topbar from '../components/Topbar'
-import { apps, wallpapers } from '@/configs'
-// import type { MacActions } from '@/types'
+import Topbar from '../components/topbar/Topbar'
+import { wallpapers } from '@/configs'
+import { themeStore } from '@/store'
 
 const Desktop = (props: any) => {
-  const dark = true
+  const dark = themeStore(state => state.dark)
   const brightness = 80
-
-  const getAppsData = (): void => {
-    let showApps = {}
-    let appsZ = {}
-    let maxApps = {}
-    let minApps = {}
-    apps.forEach((app) => {
-      showApps = {
-        ...showApps,
-        [app.id]: app.show,
-      }
-      appsZ = {
-        ...appsZ,
-        [app.id]: 2,
-      }
-      maxApps = {
-        ...maxApps,
-        [app.id]: false,
-      }
-      minApps = {
-        ...minApps,
-        [app.id]: false,
-      }
-    })
-  }
 
   return (
     <div className="w-full h-full overflow-hidden bg-center bg-cover"
