@@ -1,16 +1,15 @@
 import React, { useRef } from 'react'
-// import { useClickOutside } from '@/hooks/useClickOutside'
-
+import { useClickAway } from 'ahooks'
 interface ApplemenuProps {
-  showAppleMenu: boolean
+  appleMenuSwitch: (value: boolean) => void
 }
 
-const Applemenu = ({ showAppleMenu }: ApplemenuProps) => {
+const Applemenu = ({ appleMenuSwitch }: ApplemenuProps) => {
   const ref = useRef<HTMLDivElement>(null)
-  // useClickOutside(ref, showAppleMenu, [])
+  useClickAway(() => appleMenuSwitch(false), ref)
   return (
     <div ref={ref} className={`absolute text-black rounded cursor-pointer font-md h-70 w-52 bg-white/70 top-9 left-1
-    ${showAppleMenu ? '' : 'invisible'} `}>
+    `}>
       <ul className='p-1'>
         <li className='appleMenuItem'>About This Mac</li>
         <div className='menuDivider'></div>

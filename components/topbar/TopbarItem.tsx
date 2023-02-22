@@ -2,12 +2,15 @@ import React from 'react'
 
 interface TopbarItemProps {
   Icon: React.ReactNode
+  children?: JSX.Element
+  clickHandler?: (value: boolean) => void
+  value?: boolean
 }
 
-const TopbarItem = (props: TopbarItemProps) => {
+const TopbarItem = ({ Icon, children, clickHandler = () => { }, value = false }: TopbarItemProps) => {
   return (
-    <div className='px-1 rounded hover:bg-gray-400'>
-      {props.Icon}
+    <div className='px-1 rounded hover:bg-gray-400' onClick={() => clickHandler(!value)}>
+      {Icon}
     </div>
   )
 }

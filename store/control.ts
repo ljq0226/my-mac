@@ -7,6 +7,10 @@ interface controlState {
   showWifiMenu: boolean
   showAppleMenu: boolean
   wifiSwitch: (value: boolean) => void
+  appleMenuSwitch: (value: boolean) => void
+  wifiMenuSwitch: (value: boolean) => void
+  controlCenterSwitch: (value: boolean) => void
+
 }
 
 const useControlStore = create<controlState>(set => ({
@@ -15,7 +19,10 @@ const useControlStore = create<controlState>(set => ({
   showControlCenter: false,
   showWifiMenu: false,
   showAppleMenu: false,
-  wifiSwitch: value => set(state => ({ wifi: value })),
+  wifiSwitch: value => set(() => ({ wifi: value })),
+  appleMenuSwitch: value => set(() => ({ showAppleMenu: value })),
+  wifiMenuSwitch: value => set(() => ({ showWifiMenu: value })),
+  controlCenterSwitch: value => set(() => ({ showControlCenter: value })),
 }))
 
 export default useControlStore
