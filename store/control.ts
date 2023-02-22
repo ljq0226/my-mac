@@ -9,7 +9,7 @@ interface controlState {
   wifiSwitch: (value: boolean) => void
 }
 
-const controlStore = create<controlState>(set => ({
+const useControlStore = create<controlState>(set => ({
   date: new Date(),
   wifi: true,
   showControlCenter: false,
@@ -17,3 +17,5 @@ const controlStore = create<controlState>(set => ({
   showAppleMenu: false,
   wifiSwitch: value => set(state => ({ wifi: value })),
 }))
+
+export default useControlStore
