@@ -5,7 +5,7 @@ import { themeStore } from '@/store'
 
 const Desktop = (props: any) => {
   const dark = themeStore(state => state.dark)
-  const brightness = 80
+  const brightness = themeStore(s => s.brightness)
 
   return (
     <div className="w-full h-full overflow-hidden bg-center bg-cover"

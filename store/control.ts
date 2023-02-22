@@ -16,7 +16,7 @@ interface controlState {
 const useControlStore = create<controlState>(set => ({
   date: new Date(),
   wifi: true,
-  showControlCenter: false,
+  showControlCenter: true,
   showWifiMenu: false,
   showAppleMenu: false,
   wifiSwitch: value => set(() => ({ wifi: value })),

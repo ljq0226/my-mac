@@ -9,7 +9,7 @@ interface themeState {
 
 const themeStore = create<themeState>(set => ({
   dark: false,
-  brightness: 80,
+  brightness: 100,
   setDark: value => set(() => ({ dark: value })),
   setBrightness: value => set(() => ({ brightness: value })),
 }))

@@ -1,5 +1,9 @@
+
+declare module 'react-rangeslider'
+
 import React from "react";
 import { UserData } from './configs/user';
+
 
 export interface MacActions {
   setLogin: (value: boolean | ((prevVar: boolean) => boolean)) => void;
