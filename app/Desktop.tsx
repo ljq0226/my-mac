@@ -15,7 +15,6 @@ const Desktop = (props: any) => {
       }}
     >
       <Topbar></Topbar>
-
     </div>
   )
 }

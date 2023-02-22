@@ -17,8 +17,10 @@ const Topbar = () => {
     <div className={`w-full h-8 px-2 fixed top-0 hstack 
        text-sm text-white bg-gray-700/10 backdrop-blur-2xl shadow transition
        flex  justify-between`} >
-      <div className='flex justify-center w-[30px] items-center'>
+      <div className='ml-[300px] flex justify-center w-[30px] items-center  relative'>
+
         <Apple theme="filled" size="16" fill={dark ? '#000' : '#fff'} />
+
       </div>
       <div className="flex-1"></div>
       <div className='flex items-center justify-end h-full space-x-2 '>
