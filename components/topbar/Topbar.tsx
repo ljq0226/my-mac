@@ -5,7 +5,7 @@ import Applemenu from '../menu/Applemenu'
 import WifiMenu from '../menu/WifiMenu'
 import ControlCenter from '../menu/ControlCenter'
 import TopbarItem from './TopbarItem'
-import dayjs from '@/configs/day'
+import dayjs from '@/lib/day'
 import { themeStore, useControlStore } from '@/store'
 interface TopBarState {
   date: Date
@@ -15,7 +15,7 @@ interface TopBarState {
 }
 
 const Topbar = () => {
-  const [dark, setDark, brightness, setBrightness] = themeStore(state => [state.dark, state.setDark, state.brightness, state.setBrightness], shallow)
+  const [dark, setDark, brightness, setBrightness, sound, setSound] = themeStore(state => [state.dark, state.setDark, state.brightness, state.setBrightness, state.sound, state.setSound], shallow)
 
   const [wifi, wifiSwitch, showWifiMenu, wifiMenuSwitch, showAppleMenu, appleMenuSwitch, showControlCenter, controlCenterSwitch]
     = useControlStore(state =>
@@ -55,7 +55,7 @@ const Topbar = () => {
 
         <div className='relative'>
           <TopbarItem Icon={<SwitchButton theme="outline" size="16" fill={dark ? '#000' : '#fff'} />}></TopbarItem>
-          {showControlCenter && <ControlCenter dark={dark} setDark={setDark} brightness={brightness} setBrightness={setBrightness} />}
+          {showControlCenter && <ControlCenter dark={dark} setDark={setDark} brightness={brightness} setBrightness={setBrightness} sound={sound} setSound={setSound} />}
 
         </div>
 

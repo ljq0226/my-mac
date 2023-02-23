@@ -8,7 +8,9 @@ const Applemenu = ({ appleMenuSwitch }: ApplemenuProps) => {
   const ref = useRef<HTMLDivElement>(null)
   useClickAway(() => appleMenuSwitch(false), ref)
   return (
-    <div ref={ref} className={`absolute text-black rounded-md cursor-pointer font-md h-70 w-52 bg-white/70 top-9 left-1
+    <div
+      ref={ref}
+      className={`absolute text-black rounded-md cursor-pointer font-md h-70 w-52 bg-white/70 top-9 left-1
     `}>
       <ul className='p-1'>
         <li className='appleMenuItem'>About This Mac</li>

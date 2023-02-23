@@ -1,6 +1,6 @@
 import React from 'react'
 import Topbar from '../components/topbar/Topbar'
-import { wallpapers } from '@/configs'
+import { wallpapers } from '@/lib'
 import { themeStore } from '@/store'
 
 const Desktop = (props: any) => {
