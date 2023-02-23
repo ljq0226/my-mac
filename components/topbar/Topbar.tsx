@@ -44,7 +44,7 @@ const Topbar = () => {
         <div className='relative'>
           {wifi
             ? <TopbarItem clickHandler={wifiMenuSwitch} value={showWifiMenu} Icon={<Wifi theme="outline" size="16" fill={dark ? '#000' : '#fff'} />}></TopbarItem>
-            : <TopbarItem Icon={<CloseWifi theme="outline" size="16" fill={dark ? '#000' : '#fff'} />}></TopbarItem>
+            : <TopbarItem clickHandler={wifiMenuSwitch} value={showWifiMenu} Icon={<CloseWifi theme="outline" size="16" fill={dark ? '#000' : '#fff'} />}></TopbarItem>
           }
           {showWifiMenu && <WifiMenu wifi={wifi} wifiSwitch={wifiSwitch} wifiMenuSwitch={wifiMenuSwitch} dark={dark} />}
         </div>

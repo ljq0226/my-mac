@@ -2,6 +2,7 @@ import React from 'react'
 import { Headset, Moon, SunOne } from '@icon-park/react'
 import Slider from 'react-rangeslider'
 import 'react-rangeslider/lib/index.css'
+import { Switch } from '@/components/ui/switch'
 
 interface ControlCenterProps {
   dark: boolean
@@ -23,13 +24,13 @@ const ControlCenter = ({ dark, setDark, brightness, setBrightness, sound, setSou
     <div className={`absolute p-3  rounded-[13px] w-80 h-96 top-7 -left-44 flex flex-col shadow ${dark ? 'bg-[#1a2133]/90 ' : 'bg-white/40'}`} >
       <div className="flex w-full ">
         <div className={`flex mr-3 rounded-[13px] border  shadow w-40 h-36 ${bg}`}>
-
+          <Switch />
         </div>
         <div
           className="flex flex-col w-40 shadow h-36">
           {/* Change Mode */}
           <div
-            className={`flex p-3 py-4 rounded-[13px] h-16 border shadow ${bg}`}
+            className={`flex p-3 py-4 rounded-[13px] h-16 border shadow ${bg} cursor-pointer`}
             onClick={() => setDark(!dark)}
           >
             <div
