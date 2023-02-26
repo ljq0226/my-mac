@@ -1,6 +1,7 @@
 import React from 'react'
-import { Apple, BatteryCharge, CloseWifi, More, Search, SwitchButton, Wifi } from '@icon-park/react'
+import { ArrowLeftRight, BatteryCharging, MoreHorizontal, Search, Wifi, WifiOff } from 'lucide-react'
 import { shallow } from 'zustand/shallow'
+import Image from 'next/image'
 import Applemenu from '../menu/Applemenu'
 import WifiMenu from '../menu/WifiMenu'
 import ControlCenter from '../menu/ControlCenter'
@@ -25,17 +26,20 @@ const Topbar = () => {
   const date = new Date()
   return (
     <div className={`w-full h-8 px-2 fixed top-0  
-       text-sm text-white bg-gray-700/10 backdrop-blur-2xl shadow transition
-       flex  justify-between`} >
+       text-sm backdrop-blur-2xl shadow transition
+       flex  justify-between font-medium ${dark ? 'text-white  bg-gray-500/20 ' : 'text-black  bg-gray-700/10'}`} >
       {/* Apple Icon  */}
-      <div onClick={() => {
-        appleMenuSwitch(!showAppleMenu)
-      }} className=' flex justify-center w-[30px] items-center  relative  hover:bg-gray-400 '>
-
-        <TopbarItem Icon={<Apple theme="filled" size="16" fill={dark ? '#000' : '#fff'} />}></TopbarItem>
+      <div
+        className=' flex justify-center w-[30px] items-center  relative  hover:bg-gray-400 '
+        onMouseMove={() => {
+          appleMenuSwitch(true)
+        }
+        }
+      >
         {/* Apple Menu Switch */}
+        <TopbarItem Icon={<Image alt='' width={300}
+          height={300} src={`${dark ? '/img/icons/apple-white.png' : '/img/icons/apple-black.png'}`} />}></TopbarItem>
         {showAppleMenu && <Applemenu appleMenuSwitch={appleMenuSwitch} />}
-
       </div>
       {/* flex empty block */}
       <div className="flex-1"></div>
@@ -43,23 +47,24 @@ const Topbar = () => {
       <div className='flex items-center justify-end h-full space-x-2 '>
         <div className='relative'>
           {wifi
-            ? <TopbarItem clickHandler={wifiMenuSwitch} value={showWifiMenu} Icon={<Wifi theme="outline" size="16" fill={dark ? '#000' : '#fff'} />}></TopbarItem>
-            : <TopbarItem clickHandler={wifiMenuSwitch} value={showWifiMenu} Icon={<CloseWifi theme="outline" size="16" fill={dark ? '#000' : '#fff'} />}></TopbarItem>
+            ? <TopbarItem Icon={<Wifi size={16} color={dark ? '#fff' : '#000'} />}></TopbarItem>
+
+            : <TopbarItem Icon={<WifiOff size={16} color={dark ? '#fff' : '#000'} />}></TopbarItem>
+
           }
           {showWifiMenu && <WifiMenu wifi={wifi} wifiSwitch={wifiSwitch} wifiMenuSwitch={wifiMenuSwitch} dark={dark} />}
         </div>
 
-        <TopbarItem Icon={<Search theme="outline" size="16" fill={dark ? '#000' : '#fff'} />}></TopbarItem>
-        <TopbarItem Icon={<More theme="outline" size="16" fill={dark ? '#000' : '#fff'} />}></TopbarItem>
-        <TopbarItem Icon={<BatteryCharge theme="outline" size="16" fill={dark ? '#000' : '#fff'} />}></TopbarItem>
-
+        <TopbarItem Icon={<Search size={16} color={dark ? '#fff' : '#000'} />}></TopbarItem>
+        <TopbarItem Icon={<MoreHorizontal size={16} color={dark ? '#fff' : '#000'} />}></TopbarItem>
+        <TopbarItem Icon={<BatteryCharging size={16} color={dark ? '#fff' : '#000'} />}></TopbarItem>
         <div className='relative'>
-          <TopbarItem Icon={<SwitchButton theme="outline" size="16" fill={dark ? '#000' : '#fff'} />}></TopbarItem>
+          <TopbarItem Icon={<ArrowLeftRight size={16} color={dark ? '#fff' : '#000'} />}></TopbarItem>
           {showControlCenter && <ControlCenter dark={dark} setDark={setDark} brightness={brightness} setBrightness={setBrightness} sound={sound} setSound={setSound} />}
 
         </div>
 
-        <div className={dark ? 'text-black' : ''}>{dayjs(date).format('MMMD ddd  HH:mm')}</div>
+        <div className={dark ? 'text-white' : ''}>{dayjs(date).format('MMMD ddd  HH:mm')}</div>
       </div>
 
     </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Headset, Moon, SunOne } from '@icon-park/react'
+import { Headphones, Moon, Sun } from 'lucide-react'
 import Slider from 'react-rangeslider'
 import 'react-rangeslider/lib/index.css'
 import { Switch } from '@/components/ui/switch'
@@ -34,11 +34,11 @@ const ControlCenter = ({ dark, setDark, brightness, setBrightness, sound, setSou
             onClick={() => setDark(!dark)}
           >
             <div
-              className={`w-8 h-8 py-[5px] text-center border rounded-full ${dark ? 'bg-primary' : 'bg-gray-200'}`} >
+              className={`w-8 h-8 py-[5px] pl-[7px] text-center border rounded-full ${dark ? 'bg-primary' : 'bg-gray-200'}`} >
               {dark
-                ? <Moon theme="filled" size="16" fill="#fff" />
-                : <SunOne theme="outline" size="16" fill="#000000"
-                />}
+                ? <Moon size={16} />
+                : <Sun size={16} />
+              }
             </div>
             <h2 className={`align-middle py-[5px] pl-2 font-medium text-md ${dark ? 'text-white' : 'text-black'}`} >{dark ? 'Dark Mode' : 'Light Mode'}</h2>
           </div>
@@ -55,7 +55,7 @@ const ControlCenter = ({ dark, setDark, brightness, setBrightness, sound, setSou
       <div className='flex flex-col p-2 my-2 rounded-[13px] bg-white/50'>
         <div className="flex w-full slider">
           <div className="flex items-center justify-center bg-gray-100 border-gray-300 rounded-l-full w-7 h-7">
-            <SunOne theme="outline" size="12" fill="#000" />
+            <Sun size={16} />
           </div>
           <Slider
             min={1}
@@ -74,7 +74,7 @@ const ControlCenter = ({ dark, setDark, brightness, setBrightness, sound, setSou
       <div className='flex flex-col p-2 my-2 rounded-[13px] bg-white/50'>
         <div className="flex w-full slider">
           <div className="flex items-center justify-center bg-gray-100 border-gray-300 rounded-l-full w-7 h-7">
-            <Headset theme="outline" size="12" fill="#000" />
+            <Headphones size={16} />
           </div>
           <Slider
             min={1}

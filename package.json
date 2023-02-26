@@ -10,7 +10,6 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@icon-park/react": "^1.4.2",
     "@next/font": "13.1.6",
     "@radix-ui/react-switch": "^1.0.1",
     "@types/node": "18.14.0",
