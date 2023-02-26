@@ -1,6 +1,6 @@
 import React from 'react'
 import Topbar from '../components/topbar/Topbar'
-import Dock from '../components/desktop/Dock'
+import Launchpad from '../components/desktop/Launchpad'
 import { wallpapers } from '@/lib'
 import { themeStore } from '@/store'
 import useMouseCorner from '@/hooks/useMouseCorner'
@@ -8,12 +8,9 @@ import useMouseCorner from '@/hooks/useMouseCorner'
 const Desktop = (props: any) => {
   const dark = themeStore(state => state.dark)
   const brightness = themeStore(s => s.brightness)
-  // useMouseCorner((p) => {
-  //   console.log(' asdad111', p)
-  // })
 
-  const handleMouseCorner = (position: string) => {
-    console.log(`Mouse in ${position} corner`)
+  const handleMouseCorner = (show: boolean) => {
+    console.log(`Mouse in ${show}  `)
   }
 
   useMouseCorner(handleMouseCorner)
@@ -27,7 +24,7 @@ const Desktop = (props: any) => {
     >
       <Topbar></Topbar>
 
-      <Dock></Dock>
+      <Launchpad></Launchpad>
     </div>
   )
 }

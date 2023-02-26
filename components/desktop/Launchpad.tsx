@@ -1,14 +1,26 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Search } from 'lucide-react'
 import { wallpapers } from '@/lib'
 import { useLaunchpadStore } from '@/store'
-const Dock = () => {
+const Launchpad = () => {
   const show = useLaunchpadStore(s => s.show)
   const setShow = useLaunchpadStore(s => s.setShow)
   const [focus, setFocus] = useState(false)
   const close = show
     ? ''
     : 'opacity-0 invisible transition-opacity duration-200'
+
+  useEffect(() => {
+    const clickDesktopHandle = () => {
+      setShow(false)
+    }
+
+    document.addEventListener('click', clickDesktopHandle)
+
+    return () => {
+      document.removeEventListener('click', clickDesktopHandle)
+    }
+  }, [show])
 
   return (
     <div
@@ -50,4 +62,4 @@ const Dock = () => {
   )
 }
 
-export default Dock
+export default Launchpad
