@@ -49,8 +49,8 @@ const Launchpad = () => {
           </div>
           <input
             className="flex-1 min-w-0 px-1 text-sm text-white bg-transparent no-outline"
-            placeholder={'哈哈哈hi哦会哦i和'}
-            value={'123'}
+            placeholder={'Search'}
+            value={''}
           // onChange={e => setSearchText(e.target.value)}
           />
 
