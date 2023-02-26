@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Headphones, Moon, Sun } from 'lucide-react'
 import Slider from 'react-rangeslider'
 import 'react-rangeslider/lib/index.css'
-import { Switch } from '@/components/ui/switch'
-
+import { useClickAway } from 'ahooks'
 interface ControlCenterProps {
   dark: boolean
   brightness: number
@@ -11,20 +10,24 @@ interface ControlCenterProps {
   setBrightness: (value: number) => void
   setSound: (value: number) => void
   setDark: (value: boolean) => void
+  controlCenterSwitch: (value: boolean) => void
 }
 
 interface BaseProps {
   Icon: any
 }
 
-const ControlCenter = ({ dark, setDark, brightness, setBrightness, sound, setSound }: ControlCenterProps) => {
+const ControlCenter = ({ dark, setDark, brightness, setBrightness, sound, setSound, controlCenterSwitch }: ControlCenterProps) => {
   const bg = dark ? 'bg-[#2d3440]/90 border-gray-500' : 'bg-white/50'
-
+  const ref = useRef<HTMLDivElement>(null)
+  useClickAway(() => controlCenterSwitch(false), ref)
   return (
-    <div className={`absolute p-3  rounded-[13px] w-80 h-96 top-7 -left-44 flex flex-col shadow ${dark ? 'bg-[#1a2133]/90 ' : 'bg-white/40'}`} >
+    <div className={`absolute p-3  rounded-[13px] w-80 h-96 top-7 -left-44 flex flex-col shadow ${dark ? 'bg-[#1a2133]/90 ' : 'bg-white/40'}`}
+      ref={ref}
+    >
       <div className="flex w-full ">
         <div className={`flex mr-3 rounded-[13px] border  shadow w-40 h-36 ${bg}`}>
-          <Switch />
+
         </div>
         <div
           className="flex flex-col w-40 shadow h-36">
@@ -55,7 +58,7 @@ const ControlCenter = ({ dark, setDark, brightness, setBrightness, sound, setSou
       <div className='flex flex-col p-2 my-2 rounded-[13px] bg-white/50'>
         <div className="flex w-full slider">
           <div className="flex items-center justify-center bg-gray-100 border-gray-300 rounded-l-full w-7 h-7">
-            <Sun size={16} />
+            <Sun size={16} color='black' />
           </div>
           <Slider
             min={1}
@@ -74,7 +77,7 @@ const ControlCenter = ({ dark, setDark, brightness, setBrightness, sound, setSou
       <div className='flex flex-col p-2 my-2 rounded-[13px] bg-white/50'>
         <div className="flex w-full slider">
           <div className="flex items-center justify-center bg-gray-100 border-gray-300 rounded-l-full w-7 h-7">
-            <Headphones size={16} />
+            <Headphones size={16} color='black' />
           </div>
           <Slider
             min={1}
